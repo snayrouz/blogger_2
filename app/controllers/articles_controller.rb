@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
     end
 
     def new
+      @article = Article.new
     end
 
     def edit
@@ -21,6 +22,12 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
+    end
+
+    private
+
+    def article_params
+      params.require(:article).permit(:title, :body)
     end
 
 end
